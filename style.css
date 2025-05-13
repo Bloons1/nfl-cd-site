@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    background-color: #111; /* Dark, dramatic background */
+    color: #fdd835; /* Falcons gold (adjust as needed) */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* To contain any potential background animations */
+}
+
+.countdown-container {
+    text-align: center;
+    padding: 5vw; /* Use viewport width for scaling padding */
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent background for the container */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(253, 216, 53, 0.5); /* Glowing effect */
+    width: 80vw; /* Make the container scale with viewport width */
+    max-width: 900px; /* Optional: set a maximum width */
+}
+
+h1 {
+    font-size: 4vw; /* Scale heading font size */
+    margin-bottom: 4vw;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.timer {
+    display: flex;
+    gap: 4vw; /* Scale gap between timer segments */
+    justify-content: center;
+    width: 100%; /* Ensure timer takes full width of container */
+    margin-bottom: 2vw; /* Add some space below the timer */
+}
+
+.time-segment {
+    background-color: #333;
+    padding: 3vw 4vw; /* Scale padding for time segments */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(253, 216, 53, 0.3);
+    flex-grow: 1; /* Distribute space evenly among segments */
+}
+
+.time-segment span {
+    font-size: 6vw; /* Scale the numbers */
+    font-weight: bold;
+    display: block;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+.time-segment label {
+    font-size: 2vw; /* Scale the labels */
+    color: #ccc;
+    display: block;
+    margin-top: 1vw;
+}
+
+.game-info {
+    font-size: 2.5vw;
+    color: #eee;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.team {
+    font-weight: bold;
+}
+
+.eagles {
+    color: #004C54; /* Eagles Midnight Green */
+}
+
+.cowboys {
+    color: #041E42; /* Cowboys Navy Blue */
+}
+
+/* Optional: Add a subtle pulsating animation to the numbers */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.time-segment span {
+    animation: pulse 1.5s infinite alternate;
+}
+
+/* Optional: Add a background animation (example: subtle moving particles) */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(253, 216, 53, 0.1) 10%, transparent 20%),
+                      radial-gradient(circle, rgba(253, 216, 53, 0.05) 30%, transparent 40%);
+    background-size: 50px 50px;
+    animation: backgroundAnimation 10s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes backgroundAnimation {
+    from { background-position: 0 0; }
+    to { background-position: 50px 50px; }
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3em;
+        margin-bottom: 2em;
+    }
+    .timer {
+        gap: 2em;
+        margin-bottom: 1em;
+    }
+    .time-segment {
+        padding: 1.5em 2em;
+    }
+    .time-segment span {
+        font-size: 4em;
+    }
+    .time-segment label {
+        font-size: 1em;
+        margin-top: 0.5em;
+    }
+    .game-info {
+        font-size: 1.5em;
+    }
+}
